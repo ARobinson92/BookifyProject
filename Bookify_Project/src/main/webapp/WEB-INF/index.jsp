@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Bookify</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	<div class="topbanner">
@@ -29,7 +30,7 @@
 				<label for="password">Password</label> <input type="password"
 					id="password" name="password" />
 			</p>
-			<input type="submit" value="Login!" />
+			<input class="btn btn-primary" type="submit" value="Login!" />
 		</form>
 	</div>
 	<div class="bodycolumn">
@@ -50,7 +51,7 @@
 				<form:label path="passwordConfirmation">Password Confirmation:</form:label>
 				<form:password path="passwordConfirmation" />
 			</p>
-			<input type="submit" value="Register!" />
+			<input type="submit" class="btn btn-primary" value="Register!" />
 		</form:form>
 	</div>
 </body>

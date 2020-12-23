@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bookify_Project.models.Rating;
 import com.bookify_Project.models.Trip;
 import com.bookify_Project.models.User;
 import com.bookify_Project.services.RatingService;
@@ -94,14 +95,16 @@ public class BookifyController {
 	}
 
 	@GetMapping("/trips/{id}")
-	public String trips(@PathVariable("id") Long id, Model model, HttpSession session) {
+	public String trips(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("rating") Rating rating) {
 		Long userId = (Long) session.getAttribute("user_id");
 		User u = userService.findById(userId);
 		model.addAttribute("userEmail", u.getEmail());
 		Trip trip = tripService.findById(id);
 		List<User> users = trip.getUsers();
+		List<Rating> ratings = trip.getRatings();
 		model.addAttribute("trip", trip);
 		model.addAttribute("users", users);
+		model.addAttribute("ratings", ratings);
 		return "trip.jsp";
 	}
 
@@ -113,6 +116,18 @@ public class BookifyController {
 		trip.getUsers().add(u);
 		tripService.save(trip);
 		return "redirect:/trips/{id}";
+	}
+	
+	@PostMapping("/trips/{id}/rating")
+	public String addRating(@Valid @ModelAttribute("rating") Rating rating, @PathVariable("id") Long id, Model model, HttpSession session) {
+		Long userId = (Long) session.getAttribute("user_id");
+		User u = userService.findById(userId);
+		Trip trip = tripService.findById(id);
+		Rating r = ratingService.save(rating);
+		r.setTrip(trip);
+		r.setUser(u);
+		ratingService.save(r);
+		return "redirect:/trips/" + trip.getId();
 	}
 
 	@PostMapping("/trips/{id}/remove")
