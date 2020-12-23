@@ -42,6 +42,7 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${mytrips}" var="mytrip">
+				<c:if test="${mytrip.creatorid == user.id}">
 				<tr>
 					<td><c:out value="${mytrip.destination}" /></td>
 					<td><c:out value="${mytrip.departure}" /></td>
@@ -53,6 +54,7 @@
 						</form></td>
 						
 				</tr>
+				</c:if>
 			</c:forEach>
 		</tbody>
 	</table>

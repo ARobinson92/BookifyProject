@@ -155,7 +155,7 @@ public class BookifyController {
 	public String userPage(HttpSession session, Model model, @PathVariable("id") Long id) {
 		User u = userService.findById(id);
 		List<Trip> trips = u.getTrips();
-		List<Trip> mytrips = tripService.findByCreator_Id(id);
+		List<Trip> mytrips = tripService.findTrips();
 		model.addAttribute("user", u);
 		model.addAttribute("trips", trips);
 		model.addAttribute("mytrips", mytrips);
