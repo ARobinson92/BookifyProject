@@ -8,15 +8,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Bookify</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	<h1>Trips You Are Attending:</h1>
-	<table>
+	<table class="table table-sm table-dark">
 		<thead>
 			<tr>
-				<th>Destination</th>
-				<th>Departure Date</th>
-				<th>Options</th>
+				<th scope="col">Destination</th>
+				<th scope="col">Departure Date</th>
+				<th scope="col">Options</th>
 			</tr>
 		</thead>
 		<tbody>

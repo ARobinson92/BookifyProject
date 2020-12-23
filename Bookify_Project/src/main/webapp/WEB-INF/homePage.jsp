@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Bookify</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	<div>
@@ -15,18 +16,18 @@
 			Welcome to Bookify
 		</h1>
 		<ul>
-			<li><a href="/logout">Logout</a></li>
-			<li><a href="/users/${user.id}">My Trips</a></li>
+			<li><a href="/logout" class="badge badge-logout">Logout</a></li>
+			<li><a href="/users/${user.id}" class="badge badge-myTrips">My Trips</a></li>
 		</ul>
 	</div>
 	<div>
 		<h1>Current Trips:</h1>
-		<table>
-			<thead>
+		<table class="table">
+			<thead class="thead-dark">
 				<tr>
-					<th>Destination</th>
-					<th>Departure Date</th>
-					<th>Options</th>
+					<th scope="col">Destination</th>
+					<th scope="col">Departure Date</th>
+					<th scope="col">Options</th>
 				</tr>
 			</thead>
 			<tbody>
